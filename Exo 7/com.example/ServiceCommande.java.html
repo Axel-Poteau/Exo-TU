@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceCommande.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">exercice7</a> &gt; <a href="index.source.html" class="el_package">com.example</a> &gt; <span class="el_source">ServiceCommande.java</span></div><h1>ServiceCommande.java</h1><pre class="source lang-java linenums">package com.example;
+
+public class ServiceCommande {
+
+    private final CatalogueProduit catalogue;
+
+<span class="fc" id="L7">    public ServiceCommande(CatalogueProduit catalogue) {</span>
+<span class="fc" id="L8">        this.catalogue = catalogue;</span>
+<span class="fc" id="L9">    }</span>
+
+    public RecuCommande passerCommande(Commande commande) {
+<span class="fc" id="L12">        Produit produit = catalogue.trouverParReference(commande.getReferenceProduit());</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (produit == null) {</span>
+<span class="fc" id="L14">            throw new CommandeRefuseeException(&quot;Produit inconnu : &quot; + commande.getReferenceProduit());</span>
+        }
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        if (commande.getQuantite() &gt; produit.getStock()) {</span>
+<span class="fc" id="L17">            throw new CommandeRefuseeException(&quot;Stock insuffisant pour le produit : &quot; + produit.getReference());</span>
+        }
+<span class="fc" id="L19">        double montantBrut = produit.getPrixUnitaire() * commande.getQuantite();</span>
+<span class="fc" id="L20">        double montantTotal = montantBrut * (1 - commande.getProfil().getRemise());</span>
+<span class="fc" id="L21">        return new RecuCommande(</span>
+<span class="fc" id="L22">                produit.getReference(),</span>
+<span class="fc" id="L23">                commande.getQuantite(),</span>
+                montantTotal,
+<span class="fc" id="L25">                &quot;Commande confirmée pour &quot; + commande.getEmailClient());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

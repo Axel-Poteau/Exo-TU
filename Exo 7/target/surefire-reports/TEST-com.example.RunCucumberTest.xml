@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.example.RunCucumberTest" time="1.959" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.example.RunCucumberTest" time="1.907" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-21-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/axel/Documents/java/Rendu1905Tests/Exo 7/target/surefire/surefirebooter-20260609154723449_3.jar /home/axel/Documents/java/Rendu1905Tests/Exo 7/target/surefire 2026-06-09T15-47-23_391-jvmRun1 surefire-20260609154723449_1tmp surefire_0-20260609154723449_2tmp"/>
+    <property name="sun.java.command" value="/home/axel/Documents/java/Rendu1905Tests/Exo 7/target/surefire/surefirebooter-20260609161942382_3.jar /home/axel/Documents/java/Rendu1905Tests/Exo 7/target/surefire 2026-06-09T16-19-42_331-jvmRun1 surefire-20260609161942382_1tmp surefire_0-20260609161942382_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/axel/Documents/java/Rendu1905Tests/Exo 7/target/test-classes:/home/axel/Documents/java/Rendu1905Tests/Exo 7/target/classes:/home/axel/.m2/repository/io/cucumber/cucumber-java/7.20.1/cucumber-java-7.20.1.jar:/home/axel/.m2/repository/io/cucumber/cucumber-core/7.20.1/cucumber-core-7.20.1.jar:/home/axel/.m2/repository/io/cucumber/cucumber-gherkin/7.20.1/cucumber-gherkin-7.20.1.jar:/home/axel/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.20.1/cucumber-gherkin-messages-7.20.1.jar:/home/axel/.m2/repository/io/cucumber/gherkin/28.0.0/gherkin-28.0.0.jar:/home/axel/.m2/repository/io/cucumber/messages/24.1.0/messages-24.1.0.jar:/home/axel/.m2/repository/io/cucumber/testng-xml-formatter/0.2.0/testng-xml-formatter-0.2.0.jar:/home/axel/.m2/repository/io/cucumber/query/12.2.0/query-12.2.0.jar:/home/axel/.m2/repository/io/cucumber/tag-expressions/6.1.0/tag-expressions-6.1.0.jar:/home/axel/.m2/repository/io/cucumber/cucumber-expressions/17.1.0/cucumber-expressions-17.1.0.jar:/home/axel/.m2/repository/io/cucumber/datatable/7.20.1/datatable-7.20.1.jar:/home/axel/.m2/repository/io/cucumber/cucumber-plugin/7.20.1/cucumber-plugin-7.20.1.jar:/home/axel/.m2/repository/io/cucumber/docstring/7.20.1/docstring-7.20.1.jar:/home/axel/.m2/repository/io/cucumber/html-formatter/21.7.0/html-formatter-21.7.0.jar:/home/axel/.m2/repository/io/cucumber/junit-xml-formatter/0.5.0/junit-xml-formatter-0.5.0.jar:/home/axel/.m2/repository/io/cucumber/ci-environment/10.0.1/ci-environment-10.0.1.jar:/home/axel/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/axel/.m2/repository/io/cucumber/cucumber-junit-platform-engine/7.20.1/cucumber-junit-platform-engine-7.20.1.jar:/home/axel/.m2/repository/org/junit/platform/junit-platform-engine/1.11.4/junit-platform-engine-1.11.4.jar:/home/axel/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/axel/.m2/repository/org/junit/platform/junit-platform-commons/1.11.4/junit-platform-commons-1.11.4.jar:/home/axel/.m2/repository/org/junit/platform/junit-platform-suite/1.11.4/junit-platform-suite-1.11.4.jar:/home/axel/.m2/repository/org/junit/platform/junit-platform-suite-api/1.11.4/junit-platform-suite-api-1.11.4.jar:/home/axel/.m2/repository/org/junit/platform/junit-platform-suite-engine/1.11.4/junit-platform-suite-engine-1.11.4.jar:/home/axel/.m2/repository/org/junit/platform/junit-platform-suite-commons/1.11.4/junit-platform-suite-commons-1.11.4.jar:/home/axel/.m2/repository/org/junit/platform/junit-platform-launcher/1.11.4/junit-platform-launcher-1.11.4.jar:/home/axel/.m2/repository/org/junit/jupiter/junit-jupiter/5.11.4/junit-jupiter-5.11.4.jar:/home/axel/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.4/junit-jupiter-api-5.11.4.jar:/home/axel/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.4/junit-jupiter-params-5.11.4.jar:/home/axel/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.4/junit-jupiter-engine-5.11.4.jar:/home/axel/.m2/repository/org/mockito/mockito-core/5.14.2/mockito-core-5.14.2.jar:/home/axel/.m2/repository/net/bytebuddy/byte-buddy/1.15.4/byte-buddy-1.15.4.jar:/home/axel/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.4/byte-buddy-agent-1.15.4.jar:/home/axel/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -28,7 +28,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/home/axel/Documents/java/Rendu1905Tests/Exo 7/target/surefire/surefirebooter-20260609154723449_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/axel/Documents/java/Rendu1905Tests/Exo 7/target/surefire/surefirebooter-20260609161942382_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.11+10-1-24.04.2-Ubuntu"/>
     <property name="user.name" value="axel"/>
@@ -54,7 +54,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="Commande acceptée pour un client STANDARD" classname="Commande acceptée selon le profil client" time="1.314">
+  <testcase name="Commande acceptée pour un client STANDARD" classname="Commande acceptée selon le profil client" time="1.282">
     <system-out><![CDATA[
 Scénario: Commande acceptée pour un client STANDARD                                          &amp#27;[90m# features/commande_acceptee.feature:7&amp#27;[0m
   &amp#27;[32mÉtant donné &amp#27;[0m&amp#27;[32mun produit &amp#27;[0m&amp#27;[32m&amp#27;[1m"REF-1"&amp#27;[0m&amp#27;[32m nommé &amp#27;[0m&amp#27;[32m&amp#27;[1m"Clavier"&amp#27;[0m&amp#27;[32m au prix de &amp#27;[0m&amp#27;[32m&amp#27;[1m100.0&amp#27;[0m&amp#27;[32m avec un stock de &amp#27;[0m&amp#27;[32m&amp#27;[1m10&amp#27;[0m        &amp#27;[90m# com.example.CommandeStepDefinitions.unProduit(java.lang.String,java.lang.String,double,int)&amp#27;[0m
@@ -71,7 +71,7 @@ WARNING: If a serviceability tool is not in use, please run with -Djdk.instrumen
 WARNING: Dynamic loading of agents will be disallowed by default in a future release
 ]]></system-err>
   </testcase>
-  <testcase name="Commande acceptée pour un client PREMIUM" classname="Commande acceptée selon le profil client" time="0.015">
+  <testcase name="Commande acceptée pour un client PREMIUM" classname="Commande acceptée selon le profil client" time="0.011">
     <system-out><![CDATA[
 Scénario: Commande acceptée pour un client PREMIUM                                         &amp#27;[90m# features/commande_acceptee.feature:14&amp#27;[0m
   &amp#27;[32mÉtant donné &amp#27;[0m&amp#27;[32mun produit &amp#27;[0m&amp#27;[32m&amp#27;[1m"REF-1"&amp#27;[0m&amp#27;[32m nommé &amp#27;[0m&amp#27;[32m&amp#27;[1m"Clavier"&amp#27;[0m&amp#27;[32m au prix de &amp#27;[0m&amp#27;[32m&amp#27;[1m100.0&amp#27;[0m&amp#27;[32m avec un stock de &amp#27;[0m&amp#27;[32m&amp#27;[1m10&amp#27;[0m      &amp#27;[90m# com.example.CommandeStepDefinitions.unProduit(java.lang.String,java.lang.String,double,int)&amp#27;[0m
@@ -80,7 +80,7 @@ Scénario: Commande acceptée pour un client PREMIUM                            
   &amp#27;[32mEt &amp#27;[0m&amp#27;[32mle montant total est &amp#27;[0m&amp#27;[32m&amp#27;[1m180.0&amp#27;[0m                                                            &amp#27;[90m# com.example.CommandeStepDefinitions.leMontantTotalEst(double)&amp#27;[0m
 ]]></system-out>
   </testcase>
-  <testcase name="Commande acceptée pour un client VIP" classname="Commande acceptée selon le profil client" time="0.013">
+  <testcase name="Commande acceptée pour un client VIP" classname="Commande acceptée selon le profil client" time="0.01">
     <system-out><![CDATA[
 Scénario: Commande acceptée pour un client VIP                                        &amp#27;[90m# features/commande_acceptee.feature:19&amp#27;[0m
   &amp#27;[32mÉtant donné &amp#27;[0m&amp#27;[32mun produit &amp#27;[0m&amp#27;[32m&amp#27;[1m"REF-1"&amp#27;[0m&amp#27;[32m nommé &amp#27;[0m&amp#27;[32m&amp#27;[1m"Clavier"&amp#27;[0m&amp#27;[32m au prix de &amp#27;[0m&amp#27;[32m&amp#27;[1m100.0&amp#27;[0m&amp#27;[32m avec un stock de &amp#27;[0m&amp#27;[32m&amp#27;[1m10&amp#27;[0m &amp#27;[90m# com.example.CommandeStepDefinitions.unProduit(java.lang.String,java.lang.String,double,int)&amp#27;[0m
@@ -89,7 +89,7 @@ Scénario: Commande acceptée pour un client VIP                                
   &amp#27;[32mEt &amp#27;[0m&amp#27;[32mle montant total est &amp#27;[0m&amp#27;[32m&amp#27;[1m160.0&amp#27;[0m                                                       &amp#27;[90m# com.example.CommandeStepDefinitions.leMontantTotalEst(double)&amp#27;[0m
 ]]></system-out>
   </testcase>
-  <testcase name="Commande refusée si le produit est inconnu" classname="Commande refusée" time="0.012">
+  <testcase name="Commande refusée si le produit est inconnu" classname="Commande refusée" time="0.011">
     <system-out><![CDATA[
 Scénario: Commande refusée si le produit est inconnu                                              &amp#27;[90m# features/commande_refusee.feature:4&amp#27;[0m
   &amp#27;[32mÉtant donné &amp#27;[0m&amp#27;[32maucun produit pour la référence &amp#27;[0m&amp#27;[32m&amp#27;[1m"REF-INCONNUE"&amp#27;[0m                                      &amp#27;[90m# com.example.CommandeStepDefinitions.aucunProduit(java.lang.String)&amp#27;[0m

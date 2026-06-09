@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+exercice7,com.example,RecuCommande,0,27,0,0,0,10,0,5,0,5
+exercice7,com.example,Produit,3,24,0,0,1,9,1,4,1,4
+exercice7,com.example,ProfilClient,0,35,0,0,0,8,0,3,0,3
+exercice7,com.example,Commande,0,27,0,0,0,10,0,5,0,5
+exercice7,com.example,CommandeRefuseeException,0,4,0,0,0,2,0,1,0,1
+exercice7,com.example,ServiceCommande,0,60,0,4,0,14,0,4,0,2
