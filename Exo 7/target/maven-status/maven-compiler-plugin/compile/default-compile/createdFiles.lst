@@ -1,0 +1,7 @@
+com/example/ProfilClient.class
+com/example/RecuCommande.class
+com/example/ServiceCommande.class
+com/example/CatalogueProduit.class
+com/example/Commande.class
+com/example/CommandeRefuseeException.class
+com/example/Produit.class
