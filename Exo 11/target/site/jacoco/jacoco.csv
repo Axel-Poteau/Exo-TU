@@ -1,0 +1,14 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+exercice11,com.example.dto,TicketRequest,0,17,0,0,0,7,0,5,0,5
+exercice11,com.example.dto,ChangementStatutRequest,0,10,0,0,0,4,0,3,0,3
+exercice11,com.example.model,Ticket,0,31,0,0,0,13,0,9,0,9
+exercice11,com.example.model,Priorite,0,21,0,0,0,4,0,1,0,1
+exercice11,com.example.model,Statut,0,21,0,0,0,4,0,1,0,1
+exercice11,com.example.exception,ValidationException,0,4,0,0,0,2,0,1,0,1
+exercice11,com.example.exception,TicketIntrouvableException,0,4,0,0,0,2,0,1,0,1
+exercice11,com.example.exception,TransitionInterditeException,0,4,0,0,0,2,0,1,0,1
+exercice11,com.example.exception,GestionnaireExceptions,0,27,0,0,0,4,0,4,0,4
+exercice11,com.example,Application,5,3,0,0,2,1,1,1,1,1
+exercice11,com.example.controller,TicketController,0,35,0,0,0,8,0,5,0,5
+exercice11,com.example.service,TicketService,1,111,1,19,0,28,1,15,0,6
+exercice11,com.example.repository,TicketRepositoryEnMemoire,7,42,1,1,1,10,2,4,1,4

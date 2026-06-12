@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReservationService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">exercice12</a> &gt; <a href="index.source.html" class="el_package">com.example.service</a> &gt; <span class="el_source">ReservationService.java</span></div><h1>ReservationService.java</h1><pre class="source lang-java linenums">package com.example.service;
+
+import com.example.exception.ConflitReservationException;
+import com.example.exception.RessourceIntrouvableException;
+import com.example.exception.ValidationException;
+import com.example.model.Reservation;
+import com.example.model.StatutReservation;
+import com.example.repository.ReservationRepository;
+import com.example.repository.SalleRepository;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+
+@Service
+public class ReservationService {
+
+    private final SalleRepository salleRepository;
+    private final ReservationRepository reservationRepository;
+
+<span class="fc" id="L20">    public ReservationService(SalleRepository salleRepository, ReservationRepository reservationRepository) {</span>
+<span class="fc" id="L21">        this.salleRepository = salleRepository;</span>
+<span class="fc" id="L22">        this.reservationRepository = reservationRepository;</span>
+<span class="fc" id="L23">    }</span>
+
+    public Reservation creerReservation(Long salleId, String nomPersonne, LocalDateTime debut, LocalDateTime fin) {
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (salleRepository.trouverParId(salleId) == null) {</span>
+<span class="fc" id="L27">            throw new RessourceIntrouvableException(&quot;La salle &quot; + salleId + &quot; n'existe pas&quot;);</span>
+        }
+<span class="pc bpc" id="L29" title="1 of 4 branches missed.">        if (nomPersonne == null || nomPersonne.isBlank()) {</span>
+<span class="fc" id="L30">            throw new ValidationException(&quot;Le nom de la personne est obligatoire&quot;);</span>
+        }
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (!fin.isAfter(debut)) {</span>
+<span class="fc" id="L33">            throw new ValidationException(&quot;La date de fin doit etre apres la date de debut&quot;);</span>
+        }
+        // seules les reservations confirmees bloquent le creneau
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (Reservation existante : reservationRepository.reservationsPourSalle(salleId)) {</span>
+<span class="pc bpc" id="L37" title="1 of 4 branches missed.">            if (existante.getStatut() == StatutReservation.CONFIRMEE &amp;&amp; seChevauchent(existante, debut, fin)) {</span>
+<span class="fc" id="L38">                throw new ConflitReservationException(&quot;Le creneau chevauche une reservation existante&quot;);</span>
+            }
+<span class="fc" id="L40">        }</span>
+<span class="fc" id="L41">        Reservation reservation = new Reservation();</span>
+<span class="fc" id="L42">        reservation.setSalleId(salleId);</span>
+<span class="fc" id="L43">        reservation.setNomPersonne(nomPersonne);</span>
+<span class="fc" id="L44">        reservation.setDebut(debut);</span>
+<span class="fc" id="L45">        reservation.setFin(fin);</span>
+<span class="fc" id="L46">        reservation.setStatut(StatutReservation.CONFIRMEE);</span>
+<span class="fc" id="L47">        return reservationRepository.sauvegarder(reservation);</span>
+    }
+
+    public Reservation trouverParId(Long id) {
+<span class="fc" id="L51">        Reservation reservation = reservationRepository.trouverParId(id);</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (reservation == null) {</span>
+<span class="nc" id="L53">            throw new RessourceIntrouvableException(&quot;La reservation &quot; + id + &quot; n'existe pas&quot;);</span>
+        }
+<span class="fc" id="L55">        return reservation;</span>
+    }
+
+    public Reservation annuler(Long id) {
+<span class="fc" id="L59">        Reservation reservation = trouverParId(id);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if (reservation.getStatut() == StatutReservation.ANNULEE) {</span>
+<span class="fc" id="L61">            throw new ConflitReservationException(&quot;La reservation est deja annulee&quot;);</span>
+        }
+<span class="fc" id="L63">        reservation.setStatut(StatutReservation.ANNULEE);</span>
+<span class="fc" id="L64">        return reservation;</span>
+    }
+
+    // deux creneaux se chevauchent si chacun commence avant la fin de l'autre
+    private boolean seChevauchent(Reservation existante, LocalDateTime debut, LocalDateTime fin) {
+<span class="pc bpc" id="L69" title="2 of 4 branches missed.">        return debut.isBefore(existante.getFin()) &amp;&amp; existante.getDebut().isBefore(fin);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

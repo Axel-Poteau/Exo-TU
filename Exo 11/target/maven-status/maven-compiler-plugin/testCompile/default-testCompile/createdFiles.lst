@@ -1,0 +1,6 @@
+com/example/TicketApiIntegrationTest.class
+com/example/bdd/TicketStepDefinitions.class
+com/example/controller/TicketControllerTest.class
+com/example/bdd/CucumberSpringConfiguration.class
+com/example/bdd/RunCucumberTest.class
+com/example/service/TicketServiceTest.class
