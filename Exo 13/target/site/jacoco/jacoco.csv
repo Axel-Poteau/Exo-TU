@@ -1,0 +1,14 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+exercice13,com.example.dto,VirementRequest,0,24,0,0,0,10,0,7,0,7
+exercice13,com.example.dto,CompteRequest,0,17,0,0,0,7,0,5,0,5
+exercice13,com.example.dto,OperationRequest,0,10,0,0,0,4,0,3,0,3
+exercice13,com.example.model,Compte,0,24,0,0,0,10,0,7,0,7
+exercice13,com.example.exception,CompteIntrouvableException,0,4,0,0,0,2,0,1,0,1
+exercice13,com.example.exception,ValidationException,0,4,0,0,0,2,0,1,0,1
+exercice13,com.example.exception,GestionnaireExceptions,0,35,0,0,0,5,0,5,0,5
+exercice13,com.example.exception,CompteDejaExistantException,0,4,0,0,0,2,0,1,0,1
+exercice13,com.example.exception,SoldeInsuffisantException,0,4,0,0,0,2,0,1,0,1
+exercice13,com.example,Application,5,3,0,0,2,1,1,1,1,1
+exercice13,com.example.controller,CompteController,0,52,0,0,0,10,0,7,0,7
+exercice13,com.example.service,CompteService,0,187,2,20,0,42,2,16,0,7
+exercice13,com.example.repository,CompteRepositoryEnMemoire,7,32,0,0,1,8,1,5,1,5

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CompteController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">exercice13</a> &gt; <a href="index.source.html" class="el_package">com.example.controller</a> &gt; <span class="el_source">CompteController.java</span></div><h1>CompteController.java</h1><pre class="source lang-java linenums">package com.example.controller;
+
+import com.example.dto.CompteRequest;
+import com.example.dto.OperationRequest;
+import com.example.dto.VirementRequest;
+import com.example.model.Compte;
+import com.example.service.CompteService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/api/comptes&quot;)
+public class CompteController {
+
+    private final CompteService service;
+
+<span class="fc" id="L25">    public CompteController(CompteService service) {</span>
+<span class="fc" id="L26">        this.service = service;</span>
+<span class="fc" id="L27">    }</span>
+
+    @PostMapping
+    public ResponseEntity&lt;Compte&gt; creer(@RequestBody CompteRequest requete) {
+<span class="fc" id="L31">        Compte compte = service.creerCompte(requete.getNumero(), requete.getTitulaire());</span>
+<span class="fc" id="L32">        return ResponseEntity.status(HttpStatus.CREATED).body(compte);</span>
+    }
+
+    @GetMapping(&quot;/{numero}&quot;)
+    public Compte consulter(@PathVariable String numero) {
+<span class="fc" id="L37">        return service.consulter(numero);</span>
+    }
+
+    @GetMapping
+    public List&lt;Compte&gt; lister() {
+<span class="fc" id="L42">        return service.listerComptes();</span>
+    }
+
+    @PostMapping(&quot;/{numero}/depot&quot;)
+    public Compte deposer(@PathVariable String numero, @RequestBody OperationRequest requete) {
+<span class="fc" id="L47">        return service.deposer(numero, requete.getMontant());</span>
+    }
+
+    @PostMapping(&quot;/{numero}/retrait&quot;)
+    public Compte retirer(@PathVariable String numero, @RequestBody OperationRequest requete) {
+<span class="fc" id="L52">        return service.retirer(numero, requete.getMontant());</span>
+    }
+
+    @PostMapping(&quot;/virement&quot;)
+    public Compte virer(@RequestBody VirementRequest requete) {
+<span class="fc" id="L57">        return service.virer(requete.getSource(), requete.getDestination(), requete.getMontant());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

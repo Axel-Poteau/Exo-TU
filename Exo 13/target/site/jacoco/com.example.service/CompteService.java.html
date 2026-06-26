@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CompteService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">exercice13</a> &gt; <a href="index.source.html" class="el_package">com.example.service</a> &gt; <span class="el_source">CompteService.java</span></div><h1>CompteService.java</h1><pre class="source lang-java linenums">package com.example.service;
+
+import com.example.exception.CompteDejaExistantException;
+import com.example.exception.CompteIntrouvableException;
+import com.example.exception.SoldeInsuffisantException;
+import com.example.exception.ValidationException;
+import com.example.model.Compte;
+import com.example.repository.CompteRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CompteService {
+
+    private final CompteRepository repository;
+
+<span class="fc" id="L18">    public CompteService(CompteRepository repository) {</span>
+<span class="fc" id="L19">        this.repository = repository;</span>
+<span class="fc" id="L20">    }</span>
+
+    public Compte creerCompte(String numero, String titulaire) {
+<span class="pc bpc" id="L23" title="1 of 4 branches missed.">        if (numero == null || numero.trim().isEmpty()) {</span>
+<span class="fc" id="L24">            throw new ValidationException(&quot;Le numero de compte est obligatoire&quot;);</span>
+        }
+<span class="pc bpc" id="L26" title="1 of 4 branches missed.">        if (titulaire == null || titulaire.trim().isEmpty()) {</span>
+<span class="fc" id="L27">            throw new ValidationException(&quot;Le titulaire est obligatoire&quot;);</span>
+        }
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (repository.existe(numero)) {</span>
+<span class="fc" id="L30">            throw new CompteDejaExistantException(&quot;Le compte &quot; + numero + &quot; existe deja&quot;);</span>
+        }
+<span class="fc" id="L32">        Compte compte = new Compte();</span>
+<span class="fc" id="L33">        compte.setNumero(numero);</span>
+<span class="fc" id="L34">        compte.setTitulaire(titulaire);</span>
+<span class="fc" id="L35">        compte.setSolde(0);</span>
+<span class="fc" id="L36">        return repository.sauvegarder(compte);</span>
+    }
+
+    public Compte consulter(String numero) {
+<span class="fc" id="L40">        Compte compte = repository.trouverParNumero(numero);</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (compte == null) {</span>
+<span class="fc" id="L42">            throw new CompteIntrouvableException(&quot;Le compte &quot; + numero + &quot; n'existe pas&quot;);</span>
+        }
+<span class="fc" id="L44">        return compte;</span>
+    }
+
+    public List&lt;Compte&gt; listerComptes() {
+<span class="fc" id="L48">        return repository.tousLesComptes();</span>
+    }
+
+    public Compte deposer(String numero, double montant) {
+<span class="fc" id="L52">        Compte compte = consulter(numero);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (montant &lt;= 0) {</span>
+<span class="fc" id="L54">            throw new ValidationException(&quot;Le montant doit etre strictement positif&quot;);</span>
+        }
+<span class="fc" id="L56">        compte.setSolde(compte.getSolde() + montant);</span>
+<span class="fc" id="L57">        return repository.sauvegarder(compte);</span>
+    }
+
+    public Compte retirer(String numero, double montant) {
+<span class="fc" id="L61">        Compte compte = consulter(numero);</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (montant &lt;= 0) {</span>
+<span class="fc" id="L63">            throw new ValidationException(&quot;Le montant doit etre strictement positif&quot;);</span>
+        }
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (compte.getSolde() &lt; montant) {</span>
+<span class="fc" id="L66">            throw new SoldeInsuffisantException(&quot;Solde insuffisant sur le compte &quot; + numero);</span>
+        }
+<span class="fc" id="L68">        compte.setSolde(compte.getSolde() - montant);</span>
+<span class="fc" id="L69">        return repository.sauvegarder(compte);</span>
+    }
+
+    public Compte virer(String source, String destination, double montant) {
+<span class="fc" id="L73">        Compte compteSource = consulter(source);</span>
+<span class="fc" id="L74">        Compte compteDestination = consulter(destination);</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (montant &lt;= 0) {</span>
+<span class="fc" id="L76">            throw new ValidationException(&quot;Le montant doit etre strictement positif&quot;);</span>
+        }
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        if (compteSource.getSolde() &lt; montant) {</span>
+<span class="fc" id="L79">            throw new SoldeInsuffisantException(&quot;Solde insuffisant sur le compte &quot; + source);</span>
+        }
+<span class="fc" id="L81">        compteSource.setSolde(compteSource.getSolde() - montant);</span>
+<span class="fc" id="L82">        compteDestination.setSolde(compteDestination.getSolde() + montant);</span>
+<span class="fc" id="L83">        repository.sauvegarder(compteSource);</span>
+<span class="fc" id="L84">        repository.sauvegarder(compteDestination);</span>
+<span class="fc" id="L85">        return compteSource;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
